@@ -4,6 +4,7 @@ import Enum.TipoEvento;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 // dichiariamo che questa classe sarà un Entity, questo è l'inizio per creare la
@@ -41,7 +42,13 @@ public class Evento {
     @Column(name = "n_max_partecipanti")
     private Integer numeroMassimoPartecipanti;
 
+
+    @ManyToOne
+    @JoinColumn(name = "location_id")
     private Location location;
+
+    @OneToMany(mappedBy = "evento")
+    private List<Partecipazione> partecipazioni;
 
 
 // creiamo un construttore vuoto INDISPENSABILE
@@ -52,13 +59,12 @@ public class Evento {
 
     public Evento(String titolo, LocalDate dataEvento,
                   String descrizione, TipoEvento tipoEvento,
-                  Integer numeroMassimoPartecipanti, Location location) {
+                  Integer numeroMassimoPartecipanti) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
-        this.location = location;
     }
 
     public TipoEvento getTipoEvento() {
@@ -87,6 +93,10 @@ public class Evento {
 
     public Location getLocation() {
         return location;
+    }
+
+    public List<Partecipazione> getEventi() {
+        return partecipazioni;
     }
 
     @Override

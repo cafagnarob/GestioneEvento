@@ -2,6 +2,7 @@ package entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -17,6 +18,9 @@ public class Location {
 
     @Column
     private String citta;
+
+    @OneToMany(mappedBy = "location")
+    private List<Evento> eventi;
 
     //costruttore
 
