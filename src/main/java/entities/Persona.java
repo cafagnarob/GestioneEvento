@@ -75,7 +75,6 @@ public class Persona {
                 ", cognome='" + cognome + '\'' +
                 ", data_di_nascita=" + data_di_nascita +
                 ", sesso=" + sesso +
-                ", listaPartecipazioni=" + listaPartecipazioni +
                 '}';
     }
 }

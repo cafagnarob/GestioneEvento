@@ -59,12 +59,13 @@ public class Evento {
 
     public Evento(String titolo, LocalDate dataEvento,
                   String descrizione, TipoEvento tipoEvento,
-                  Integer numeroMassimoPartecipanti) {
+                  Integer numeroMassimoPartecipanti, Location location) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.location = location;
     }
 
     public TipoEvento getTipoEvento() {
@@ -108,7 +109,6 @@ public class Evento {
                 ", descrizione='" + descrizione + '\'' +
                 ", tipoEvento=" + tipoEvento +
                 ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
-                ", location=" + location +
                 '}';
     }
 }
