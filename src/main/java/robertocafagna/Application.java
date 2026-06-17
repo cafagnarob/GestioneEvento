@@ -254,33 +254,5 @@ public class Application {
         } catch (NotFoundException e) {
             System.out.println("errore: " + e.getMessage());
         }
-
-        // test per vedere se sono eliminati
-
-        try {
-            partecipazioneDAO.getById(id_partecipazione);
-        } catch (NotFoundException e) {
-            System.out.println("errore: " + e.getMessage());
-        }
-
-        try {
-            eventoDAO.getById(id_evento);
-        } catch (NotFoundException e) {
-            System.out.println("errore: " + e.getMessage());
-        }
-
-        try {
-            personaDAO.getById(id_persona);
-        } catch (NotFoundException e) {
-            System.out.println("errore: " + e.getMessage());
-        }
-
-        try {
-            locationDAO.getById(id_location);
-        } catch (NotFoundException e) {
-            System.out.println("errore: " + e.getMessage());
-        }
-
-
     }
 }
