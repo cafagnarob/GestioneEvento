@@ -2,14 +2,14 @@
 <persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="u4w3d2pu">
+    <persistence-unit name="gestioneEventopu">
         <!--    lista delle classi -->
         <class>entities.Evento</class>
         <class>entities.Location</class>
         <class>entities.Persona</class>
         <class>entities.Partecipazione</class>
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/u4w3d2"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestioneEvento"/>
             <!--            nome user x acesso al DB-->
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
             <!--            password x accesso al DB-->
