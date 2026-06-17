@@ -47,7 +47,7 @@ public class Evento {
     @JoinColumn(name = "location_id")
     private Location location;
 
-    @OneToMany(mappedBy = "evento")
+    @OneToMany(mappedBy = "evento", cascade = CascadeType.REMOVE)
     private List<Partecipazione> partecipazioni;
 
 

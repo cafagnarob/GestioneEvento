@@ -40,7 +40,6 @@ public class Partecipazione {
     public String toString() {
         return "Partecipazioni{" +
                 "Id=" + Id +
-                ", persona=" + persona +
                 ", evento=" + evento +
                 ", stato=" + stato +
                 '}';

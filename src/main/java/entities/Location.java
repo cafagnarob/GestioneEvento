@@ -19,7 +19,7 @@ public class Location {
     @Column
     private String citta;
 
-    @OneToMany(mappedBy = "location")
+    @OneToMany(mappedBy = "location", cascade = CascadeType.REMOVE)
     private List<Evento> eventi;
 
     //costruttore

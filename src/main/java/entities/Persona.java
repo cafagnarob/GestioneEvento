@@ -27,7 +27,7 @@ public class Persona {
     @Enumerated(EnumType.STRING)
     private Sesso sesso;
 
-    @OneToMany(mappedBy = "persona")
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.REMOVE)
     private List<Partecipazione> listaPartecipazioni;
 
 
