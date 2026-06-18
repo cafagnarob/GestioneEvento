@@ -5,9 +5,8 @@ import dao.EventoDAO;
 import dao.LocationDAO;
 import dao.PartecipazioneDAO;
 import dao.PersonaDAO;
-import entities.GaraDiAtletica;
-import entities.Location;
-import entities.Persona;
+import entities.*;
+import exception.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -242,53 +241,31 @@ public class Application {
         eventoDAO.save(g3);
 */
 
-// EVENTO
-        /*UUID id_loc1 = UUID.fromString("5873313b-e740-4fb2-b8bb-1dd9ec04074c");
-        Location loc1FromDB = locationDAO.getById(id_loc1);
-        UUID id_loc2 = UUID.fromString("8de600aa-89b6-4eaa-9673-e0b542baf3b2");
-        Location loc2FromDB = locationDAO.getById(id_loc2);
-        UUID id_loc3 = UUID.fromString("b01df81c-c853-4509-bc99-77c7d9ac82e6");
-        Location loc3FromDB = locationDAO.getById(id_loc3);
-        UUID id_loc4 = UUID.fromString("c3c952bf-fafa-4b9d-bfd1-db7c4187293d");
-        Location loc4FromDB = locationDAO.getById(id_loc4);
-*/
 
-        /*UUID id_p1FromDB = UUID.fromString("4f778ee2-f6e3-4fc7-9e51-42271027aecf");
-        Persona p1FromDB = personaDAO.getById(id_p1FromDB);
-
-        UUID id_p2FromDB = UUID.fromString("b77f0d73-1d38-44d6-9db0-7f414ca98ef5");
-        Persona p2FromDB = personaDAO.getById(id_p2FromDB);
-        UUID id_p3FromDB = UUID.fromString("de5f2836-ad84-4150-bb43-1d254d34d47c");
-        Persona p3FromDB = personaDAO.getById(id_p3FromDB);
-        UUID id_p4FromDB = UUID.fromString("e17f7c87-e8f5-48ec-bfc8-c693a28fb742");
-        Persona p4FromDB = personaDAO.getById(id_p4FromDB);
-        UUID id_p5FromDB = UUID.fromString("f561ab4a-fe54-43ef-bbf1-2a446da5b36a");
-        Persona p5FromDB = personaDAO.getById(id_p5FromDB);
-
-        UUID id_e1FromDB = UUID.fromString("02651dfc-aba8-4030-8522-8aaab004c052");
+        UUID id_e1FromDB = UUID.fromString("066bf875-662a-483e-838b-f5d62980cf62");
         Evento e1FromDB = eventoDAO.getById(id_e1FromDB);
-        UUID id_e2FromDB = UUID.fromString("7214fa6a-cf4d-4243-9dbf-3ea8fa6878f5");
+        UUID id_e2FromDB = UUID.fromString("0d94cbfe-bbd9-40d9-9c8a-0eececf24881");
         Evento e2FromDB = eventoDAO.getById(id_e2FromDB);
-        UUID id_e3FromDB = UUID.fromString("83211401-9a0f-4f60-addc-1c18448cfcea");
+        UUID id_e3FromDB = UUID.fromString("5b7bcb51-1371-4bf3-a998-f2aa36f08ade");
         Evento e3FromDB = eventoDAO.getById(id_e3FromDB);
-        UUID id_e4FromDB = UUID.fromString("ac4787b9-4ad7-4793-a16b-e52df8d22038");
+        UUID id_e4FromDB = UUID.fromString("673892f5-5302-42fc-a500-bd1c9632016b");
         Evento e4FromDB = eventoDAO.getById(id_e4FromDB);
-        UUID id_e5FromDB = UUID.fromString("ac6368f1-4d2b-4f45-a9ae-f7bb3e992323");
+        UUID id_e5FromDB = UUID.fromString("792492ca-f7f9-49f2-a8b5-959e44c3907f");
         Evento e5FromDB = eventoDAO.getById(id_e5FromDB);
-        UUID id_e6FromDB = UUID.fromString("b0224dd7-c77f-44dc-81c3-6182dc67834d");
+        UUID id_e6FromDB = UUID.fromString("894d2656-4023-4f3b-9241-288dc2453eb3");
         Evento e6FromDB = eventoDAO.getById(id_e6FromDB);
-        UUID id_e7FromDB = UUID.fromString("b758fa51-6bbc-45b0-af98-91a0d933816e");
+        UUID id_e7FromDB = UUID.fromString("896197d1-f797-4edc-8904-8a384de4cf43");
         Evento e7FromDB = eventoDAO.getById(id_e7FromDB);
-        UUID id_e8FromDB = UUID.fromString("d0e5b545-02fc-4170-8147-ebe698b73b40");
+        UUID id_e8FromDB = UUID.fromString("9595d638-acd2-4335-9740-a0bac04f3a7d");
         Evento e8FromDB = eventoDAO.getById(id_e8FromDB);
-        UUID id_e9FromDB = UUID.fromString("deebe10e-0b68-4434-badd-67ae572cdf9e");
+        UUID id_e9FromDB = UUID.fromString("9b6bbcb5-4ab4-46bb-8740-e1aadc787020");
         Evento e9FromDB = eventoDAO.getById(id_e9FromDB);
-        UUID id_e10FromDB = UUID.fromString("f82d9c9e-d7fd-44e0-994f-497821d15b3a");
-        Evento e10FromDB = eventoDAO.getById(id_e9FromDB);*/
+        UUID id_e10FromDB = UUID.fromString("aa679579-ed20-45ae-b691-2b3feebf0490");
+        Evento e10FromDB = eventoDAO.getById(id_e9FromDB);
 
 
 //PARTECIPAZIONE
-       /* Partecipazione part1 =
+        /*Partecipazione part1 =
                 new Partecipazione(p1FromDB, e1FromDB, Stato.CONFERMATA);
 
         Partecipazione part2 =
@@ -318,26 +295,40 @@ public class Application {
         UUID id_persona = UUID.fromString("9fd9f228-00a4-4b88-bc62-46d930d63fb2");
         UUID id_location = UUID.fromString("6e2838b9-c708-4c3b-9f57-07d2921d4aa0");*/
 
-        /*//GetById
+        /*//GetStreamin
         try {
-            partecipazioneDAO.getById(id_partecipazione);
+            eventoDAO.getConcertiInStreaming(true);
+        } catch (NotFoundException e) {
+            System.out.println("errore: " + e.getMessage());
+        }*/
+        //getGenere
+       /* try {
+            eventoDAO.getConcertiPerGenere(Genere.ROCK);
+        } catch (NotFoundException e) {
+            System.out.println("errore: " + e.getMessage());
+        }*/
+
+        //getVinte in casa
+
+       /* try {
+            eventoDAO.getPartitePareggiate();
+        } catch (NotFoundException e) {
+            System.out.println("errore: " + e.getMessage());
+        }*/
+        try {
+            List<PartitaDiCalcio> partitevinteInCasa = eventoDAO.getPartiteVinteInCasa();
+            System.out.println(partitevinteInCasa.size());
+            partitevinteInCasa.forEach(System.out::println);
         } catch (NotFoundException e) {
             System.out.println("errore: " + e.getMessage());
         }
-
-        try {
-            eventoDAO.getById(id_evento);
+       /* try {
+            eventoDAO.getPartiteVinteInTrasferta();
         } catch (NotFoundException e) {
             System.out.println("errore: " + e.getMessage());
-        }
+        }*/
 
-        try {
-            personaDAO.getById(id_persona);
-        } catch (NotFoundException e) {
-            System.out.println("errore: " + e.getMessage());
-        }
-
-        try {
+        /*try {
             locationDAO.getById(id_location);
         } catch (NotFoundException e) {
             System.out.println("errore: " + e.getMessage());

@@ -3,6 +3,7 @@ package dao;
 import Enum.Genere;
 import entities.Concerto;
 import entities.Evento;
+import entities.PartitaDiCalcio;
 import exception.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -52,7 +53,7 @@ public class EventoDAO {
     public List<Concerto> getConcertiInStreaming(boolean inStreaming) {
         TypedQuery<Concerto> query = this.entityManager.createQuery(
                 "SELECT c FROM Concerto c WHERE c.inStreaming= :param ", Concerto.class);
-        query.setParameter(":param", inStreaming);
+        query.setParameter("param", inStreaming);
         System.out.println("LISTA CONCERTI: " + query.getResultList());
         return query.getResultList();
 
@@ -61,8 +62,23 @@ public class EventoDAO {
     public List<Concerto> getConcertiPerGenere(Genere genere) {
         TypedQuery<Concerto> query = this.entityManager.createQuery(
                 "SELECT c FROM Concerto c WHERE c.genere= :param ", Concerto.class);
-        query.setParameter(":param", genere);
+        query.setParameter("param", genere);
         System.out.println("LISTA CONCERTI " + genere + ":" + query.getResultList());
+        return query.getResultList();
+    }
+
+    public List<PartitaDiCalcio> getPartiteVinteInCasa() {
+        TypedQuery<PartitaDiCalcio> query = this.entityManager.createNamedQuery("PartitaDiCalcio.vinteInCasa", PartitaDiCalcio.class);
+        return query.getResultList();
+    }
+
+    public List<PartitaDiCalcio> getPartiteVinteInTrasferta() {
+        TypedQuery<PartitaDiCalcio> query = this.entityManager.createNamedQuery("PartitaDiCalcio.vinteInTrasferta", PartitaDiCalcio.class);
+        return query.getResultList();
+    }
+
+    public List<PartitaDiCalcio> getPartitePareggiate() {
+        TypedQuery<PartitaDiCalcio> query = this.entityManager.createNamedQuery("PartitaDiCalcio.pareggiate", PartitaDiCalcio.class);
         return query.getResultList();
     }
 
