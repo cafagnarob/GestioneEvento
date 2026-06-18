@@ -8,6 +8,9 @@
         <class>entities.Location</class>
         <class>entities.Persona</class>
         <class>entities.Partecipazione</class>
+        <class>entities.PartitaDiCalcio</class>
+        <class>entities.Concerto</class>
+        <class>entities.GaraDiAtletica</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestioneEvento"/>
             <!--            nome user x acesso al DB-->

@@ -4,6 +4,7 @@ import dao.EventoDAO;
 import dao.LocationDAO;
 import dao.PartecipazioneDAO;
 import dao.PersonaDAO;
+import entities.Location;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -19,13 +20,13 @@ public class Application {
         PersonaDAO personaDAO = new PersonaDAO(entityManager);
         PartecipazioneDAO partecipazioneDAO = new PartecipazioneDAO(entityManager);
 
-        /* //LOCATION
+        //LOCATION
         Location loc1 = new Location("Forum Assago", "Milano");
         Location loc2 = new Location("Palalottomatica", "Roma");
         Location loc3 = new Location("Teatro Massimo", "Palermo");
         Location loc4 = new Location("Arena di Verona", "Verona");
 
-*/
+
        /* locationDAO.save(loc1);
         locationDAO.save(loc2);
         locationDAO.save(loc3);

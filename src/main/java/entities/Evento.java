@@ -13,6 +13,10 @@ import java.util.UUID;
 // dichiariamo la tabella e ne cambiamo il nome
 @Table(name = "evento")
 @Inheritance(strategy = InheritanceType.JOINED)
+@NamedQuery(
+        name = "Evento.soldOut",
+        query = "SELECT e FROM Evento e JOIN e.partecipazioni p GROUP BY e HAVING COUNT(p) = e.numeroMassimoPartecipanti"
+)
 public class Evento {
     // dichiarimao che il seguente attributo sarà un attributo unico per ogni evento
     @Id

@@ -7,6 +7,10 @@ import java.util.UUID;
 
 @Entity
 @Table
+@NamedQuery(
+        name = "Partecipazioni.daConfermare",
+        query = "SELECT p FROM Partecipazione p WHERE p.stato = 'DA_CONFERMARE'"
+)
 public class Partecipazione {
     @Id
     @GeneratedValue

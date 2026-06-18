@@ -7,6 +7,17 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(
+                name = "GaraDiAtletica.garaPerVincitore",
+                query = "SELECT g FROM GaraDiAtletica g Where g.vincitore= :param"
+        ),
+        @NamedQuery(
+                name = "GaraDiAtletica.garaPerPartecipante",
+                query = "SELECT g FROM GaraDiAtletica WHERE :param MEMBER OF g.setatleti"
+
+        )
+})
 @Table(name = "gara_di_atletica")
 public class GaraDiAtletica extends Evento {
 
