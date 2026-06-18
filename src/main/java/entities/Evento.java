@@ -17,7 +17,7 @@ import java.util.UUID;
         name = "Evento.soldOut",
         query = "SELECT e FROM Evento e JOIN e.partecipazioni p GROUP BY e HAVING COUNT(p) = e.numeroMassimoPartecipanti"
 )
-public class Evento {
+public abstract class Evento {
     // dichiarimao che il seguente attributo sarà un attributo unico per ogni evento
     @Id
     // dichiariamo che sarà il server a generare un valore per questo attributo

@@ -14,7 +14,7 @@ import java.util.List;
         ),
         @NamedQuery(
                 name = "GaraDiAtletica.garaPerPartecipante",
-                query = "SELECT g FROM GaraDiAtletica WHERE :param MEMBER OF g.setatleti"
+                query = "SELECT g FROM GaraDiAtletica g WHERE :param MEMBER OF g.setAtleti"
 
         )
 })
@@ -22,7 +22,12 @@ import java.util.List;
 public class GaraDiAtletica extends Evento {
 
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(
+            name = "gara_atleti",
+            joinColumns = @JoinColumn(name = "gara_id"),
+            inverseJoinColumns = @JoinColumn(name = "persona_id")
+    )
     private List<Persona> setAtleti;
 
     @ManyToOne
