@@ -1,44 +1,38 @@
 package robertocafagna;
 
-import Enum.Sesso;
 import dao.EventoDAO;
 import dao.LocationDAO;
 import dao.PartecipazioneDAO;
 import dao.PersonaDAO;
-import entities.Location;
-import entities.Persona;
-import exception.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-
-import java.time.LocalDate;
-import java.util.UUID;
 
 public class Application {
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("gestioneEventopu");
 
     public static void main(String[] args) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
+        System.out.println("hello");
         EventoDAO eventoDAO = new EventoDAO(entityManager);
         LocationDAO locationDAO = new LocationDAO(entityManager);
         PersonaDAO personaDAO = new PersonaDAO(entityManager);
         PartecipazioneDAO partecipazioneDAO = new PartecipazioneDAO(entityManager);
 
-        //LOCATION
+        /* //LOCATION
         Location loc1 = new Location("Forum Assago", "Milano");
         Location loc2 = new Location("Palalottomatica", "Roma");
         Location loc3 = new Location("Teatro Massimo", "Palermo");
         Location loc4 = new Location("Arena di Verona", "Verona");
 
-
+*/
        /* locationDAO.save(loc1);
         locationDAO.save(loc2);
         locationDAO.save(loc3);
         locationDAO.save(loc4);*/
 
 //PERSON
-        Persona p1 = new Persona(
+       /* Persona p1 = new Persona(
                 "Mario",
                 "Rossi",
                 LocalDate.of(1990, 5, 12),
@@ -67,7 +61,7 @@ public class Application {
                 "Ferrari",
                 LocalDate.of(1993, 7, 30),
                 Sesso.M);
-
+*/
 
        /* personaDAO.save(p1);
         personaDAO.save(p2);
@@ -234,10 +228,10 @@ public class Application {
         partecipazioneDAO.save(part5);
         partecipazioneDAO.save(part6);*/
 
-        UUID id_partecipazione = UUID.fromString("2863b212-c7cc-4880-afed-08b834b4e975");
+       /* UUID id_partecipazione = UUID.fromString("2863b212-c7cc-4880-afed-08b834b4e975");
         UUID id_evento = UUID.fromString("89895f47-6404-4464-b32a-f13a7c250359");
         UUID id_persona = UUID.fromString("9fd9f228-00a4-4b88-bc62-46d930d63fb2");
-        UUID id_location = UUID.fromString("6e2838b9-c708-4c3b-9f57-07d2921d4aa0");
+        UUID id_location = UUID.fromString("6e2838b9-c708-4c3b-9f57-07d2921d4aa0");*/
 
         /*//GetById
         try {
@@ -284,11 +278,11 @@ public class Application {
             System.out.println("errore: " + e.getMessage());
         }*/
 
-        try {
+      /*  try {
             locationDAO.delete(id_location);
         } catch (NotFoundException e) {
             System.out.println("errore: " + e.getMessage());
-        }
+        }*/
 
     }
 }

@@ -11,7 +11,8 @@ import java.util.UUID;
 // struttura della tabella.
 @Entity
 // dichiariamo la tabella e ne cambiamo il nome
-@Table(name = "eventi")
+@Table(name = "evento")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Evento {
     // dichiarimao che il seguente attributo sarà un attributo unico per ogni evento
     @Id
